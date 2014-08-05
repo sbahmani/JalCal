@@ -6,8 +6,6 @@
 package ir.sjb.jalcal.util;
 
 import java.util.Calendar;
-import java.util.Date;
-import java.util.TimeZone;
 import org.junit.Test;
 import static org.fest.assertions.Assertions.*;
 
