@@ -21,11 +21,22 @@ public class JalCalTest {
     public void testJalaliToGregorian() throws DateException {
         Calendar expected1 = Calendar.getInstance(TimeZone.getDefault());
         expected1.set(2014, 7, 5, 10, 2, 4);
-
         assertThat(JalCal.jalaliToGregorian(1393, 5, 14, 10, 2, 4).toString()).isEqualTo(expected1.getTime().toString());
-//        assertThat(JalCal.jalaliToGregorian(1393, 5, 14, 12, 1, 1).getTime()).isEqualTo(1407223861000l);
-//        assertThat(JalCal.jalaliToGregorian("1393/5/14").getTime()).isEqualTo(1407180600000l);
-//        assertThat(JalCal.jalaliToGregorian("14/5/1393").getTime()).isEqualTo(1407180600000l);
+
+        Calendar expected2 = Calendar.getInstance(TimeZone.getDefault());
+        expected2.set(2014, 7, 5, 12, 1, 1);
+        assertThat(JalCal.jalaliToGregorian(1393, 5, 14, 12, 1, 1).toString()).isEqualTo(expected2.getTime().toString());
+
+        Calendar expected3 = Calendar.getInstance(TimeZone.getDefault());
+        expected3.set(2014, 7, 5, 23, 1, 1);
+        assertThat(JalCal.jalaliToGregorian(1393, 5, 14, 23, 1, 1).toString()).isEqualTo(expected3.getTime().toString());
+
+        Calendar expected4 = Calendar.getInstance(TimeZone.getDefault());
+        expected4.set(2014, 7, 5, 1, 23, 1);
+        assertThat(JalCal.jalaliToGregorian(1393, 5, 14, 1, 23, 1).toString()).isEqualTo(expected4.getTime().toString());
+
+        assertThat(JalCal.jalaliToGregorian("1393/5/14").getTime()).isEqualTo(1407180600000l);
+        assertThat(JalCal.jalaliToGregorian("14/5/1393").getTime()).isEqualTo(1407180600000l);
     }
 
     @Test
