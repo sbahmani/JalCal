@@ -6,6 +6,7 @@
 package ir.sjb.jalcal.util;
 
 import java.util.Calendar;
+import java.util.Date;
 import org.junit.Test;
 import static org.fest.assertions.Assertions.*;
 
@@ -17,7 +18,10 @@ public class JalCalTest {
 
     @Test
     public void testJalaliToGregorian() throws DateException {
-        assertThat(JalCal.jalaliToGregorian(1393, 5, 14, 10, 2, 4).toInstant().toString()).isEqualTo("2014-08-05T05:32:04Z");
+        assertThat(JalCal.jalaliToGregorian(1393, 5, 14, 10, 2, 4).getTime()).isEqualTo(1407216724000l);
+        assertThat(JalCal.jalaliToGregorian(1393, 5, 14, 12, 1, 1).getTime()).isEqualTo(1407223861000l);
+        assertThat(JalCal.jalaliToGregorian("1393/5/14").getTime()).isEqualTo(1407180600000l);
+        assertThat(JalCal.jalaliToGregorian("14/5/1393").getTime()).isEqualTo(1407180600000l);
     }
 
     @Test
@@ -30,7 +34,7 @@ public class JalCalTest {
         cal.set(Calendar.MINUTE, 25);
         cal.set(Calendar.SECOND, 1);
         cal.set(Calendar.MILLISECOND, 0);
-        assertThat(JalCal.gregorianToJalali(cal.getTime())).isEqualTo("14/4/1393   10:25:1");
+        assertThat(JalCal.gregorianToJalali(cal.getTime(), true)).isEqualTo("14/4/1393   10:25:1");
     }
 
 }
