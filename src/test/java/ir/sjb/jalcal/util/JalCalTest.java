@@ -35,8 +35,13 @@ public class JalCalTest {
         expected4.set(2014, 7, 5, 1, 23, 1);
         assertThat(JalCal.jalaliToGregorian(1393, 5, 14, 1, 23, 1).toString()).isEqualTo(expected4.getTime().toString());
 
-        assertThat(JalCal.jalaliToGregorian("1393/5/14").getTime()).isEqualTo(1407180600000l);
-        assertThat(JalCal.jalaliToGregorian("14/5/1393").getTime()).isEqualTo(1407180600000l);
+        Calendar expected5 = Calendar.getInstance(TimeZone.getDefault());
+        expected5.set(2014, 7, 5, 0, 0, 0);
+        assertThat(JalCal.jalaliToGregorian("1393/5/14").toString()).isEqualTo(expected5.getTime().toString());
+
+        Calendar expected6 = Calendar.getInstance(TimeZone.getDefault());
+        expected6.set(2014, 7, 5, 0, 0, 0);
+        assertThat(JalCal.jalaliToGregorian("14/5/1393").toString()).isEqualTo(expected5.getTime().toString());
     }
 
     @Test
