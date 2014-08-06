@@ -18,7 +18,7 @@ public class JalCalTest {
 
     @Test
     public void testJalaliToGregorian() throws DateException {
-        System.out.println(JalCal.jalaliToGregorian(1393, 5, 14, 10, 2, 4).getTime());
+        System.out.println(JalCal.jalaliToGregorian(1393, 5, 14, 10, 2, 4));
         assertThat(JalCal.jalaliToGregorian(1393, 5, 14, 10, 2, 4).getTime()).isEqualTo(1407216724000l);
         assertThat(JalCal.jalaliToGregorian(1393, 5, 14, 12, 1, 1).getTime()).isEqualTo(1407223861000l);
         assertThat(JalCal.jalaliToGregorian("1393/5/14").getTime()).isEqualTo(1407180600000l);
