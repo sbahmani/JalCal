@@ -3,6 +3,6 @@
 JalCal
 ======
 
-Jalali Calender in Java
+Jalali(Persian) Calender in Java
 
 
