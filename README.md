@@ -2,7 +2,7 @@
 
 Jalali(Persian) Calender Convertor in Java
 
-## How to User
+## How to Use
 
 ```
 <dependency>
