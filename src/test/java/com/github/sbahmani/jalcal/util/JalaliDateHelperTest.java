@@ -17,9 +17,7 @@ package com.github.sbahmani.jalcal.util;
 
 import java.util.Date;
 import org.fest.assertions.Assertions;
-import org.junit.Assert;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
  *

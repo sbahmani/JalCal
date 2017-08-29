@@ -91,6 +91,7 @@ public class JalaliDateHelper {
         }
         return retVal;
     }
+
     /**
      *
      * @param date standard in java
@@ -102,9 +103,9 @@ public class JalaliDateHelper {
         Matcher matcher = TIME_PATTERN.matcher(nowgregorianToJalaliDate);
         if (matcher.find()) {
             retVal = (matcher.group(1).length() == 2) ? matcher.group(1) : "0" + matcher.group(1);
-            retVal+=":";
+            retVal += ":";
             retVal += (matcher.group(2).length() == 2) ? matcher.group(2) : "0" + matcher.group(2);
-            retVal+=":";
+            retVal += ":";
             retVal += (matcher.group(3).length() == 2) ? matcher.group(3) : "0" + matcher.group(3);
         }
         return retVal;
@@ -115,18 +116,16 @@ public class JalaliDateHelper {
      * @param date for example 930604 by 04/06/1393
      * @param time for example 154840 by 15:48:40
      * @return standard date in java
-     * @throws RuntimeException
-     * @throws NumberFormatException
-     * @throws DateException
+     * @throws DateException convert fail
      */
-    public static Date extractDateFromJalaliDateTimeIn1300(String date, String time) throws RuntimeException, NumberFormatException, DateException {
+    public static Date extractDateFromJalaliDateTimeIn1300(String date, String time) throws DateException {
         Matcher timematcher = SIX_DIGIT_PATTERN.matcher(time);
         if (!timematcher.find()) {
-            throw new RuntimeException();
+            throw new IllegalStateException("time format invalid");
         }
         Matcher datematcher = SIX_DIGIT_PATTERN.matcher(date);
         if (!datematcher.find()) {
-            throw new RuntimeException();
+            throw new IllegalStateException("D format invalid");
         }
         Date jalaliToGregorian = JalCal.jalaliToGregorian(
                 Integer.valueOf("13" + datematcher.group(1)),
@@ -143,18 +142,16 @@ public class JalaliDateHelper {
      * @param date for example 13930604 by 04/06/1393
      * @param time for example 154840 by 15:48:40
      * @return standard date in java
-     * @throws RuntimeException
-     * @throws NumberFormatException
-     * @throws DateException
+     * @throws DateException convert fail
      */
-    public static Date extractDateFromJalaliDateTime(String date, String time) throws RuntimeException, NumberFormatException, DateException {
+    public static Date extractDateFromJalaliDateTime(String date, String time) throws DateException {
         Matcher timematcher = SIX_DIGIT_PATTERN.matcher(time);
         if (!timematcher.find()) {
-            throw new RuntimeException();
+            throw new IllegalStateException("time format invalid");
         }
         Matcher datematcher = EIGHT_DATE_DIGIT_PATTERN.matcher(date);
         if (!datematcher.find()) {
-            throw new RuntimeException();
+            throw new IllegalStateException("date format invalid");
         }
         Date jalaliToGregorian = JalCal.jalaliToGregorian(
                 Integer.valueOf(datematcher.group(1)),

@@ -37,8 +37,8 @@ public class JalCal {
      * @param hour in local time
      * @param min in local time
      * @param second in local time
-     * @return
-     * @throws DateException
+     * @return java normal date
+     * @throws DateException fail to convert
      */
     public static Date jalaliToGregorian(int year, int month, int day, int hour, int min, int second) throws DateException {
         if (year < 1000 || month > 12 || day > 31) {
@@ -64,8 +64,9 @@ public class JalCal {
     }
 
     /**
-     * @param date
-     * @param dayAtFirst if true on return value day/month/year else year/month/day
+     * @param date need to be converted
+     * @param dayAtFirst if true on return value day/month/year else
+     * year/month/day
      * @return day/month/year or year/month/day
      */
     public static String gregorianToJalaliDate(Date date, boolean dayAtFirst) {
@@ -92,7 +93,7 @@ public class JalCal {
 
     /**
      *
-     * @param date
+     * @param date need to be converted
      * @return hour:min:sec
      */
     public static String gregorianToJalaliTime(Date date) {
@@ -106,8 +107,9 @@ public class JalCal {
     /**
      *
      * @param date need to be converted
-     * @param dayAtFirst if true on return value day/month/year else year/month/day
-     * @return
+     * @param dayAtFirst if true on return value day/month/year else
+     * year/month/day
+     * @return jalai date
      */
     public static String gregorianToJalali(Date date, boolean dayAtFirst) {
         return gregorianToJalaliDate(date, dayAtFirst) + "   " + gregorianToJalaliTime(date);
@@ -130,6 +132,12 @@ public class JalCal {
         return retInt;
     }
 
+    /**
+     *
+     * @param input need to be converted
+     * @return normal java date
+     * @throws DateException fail to convert
+     */
     public static Date jalaliToGregorian(String input) throws DateException {
         int[] intArr = slashDateTokenizer(input);
         try {
