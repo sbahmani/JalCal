@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/sbahmani/JalCal.svg?branch=master)](https://travis-ci.org/sbahmani/JalCal)
+
 # JalCal
 
 Jalali(Persian) Calender Convertor in Java
