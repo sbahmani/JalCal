@@ -29,6 +29,7 @@ public class JalCalTest {
 
     @Test
     public void testJalaliToGregorian() throws DateException {
+        System.setProperty("user.timezone", "Asia/Tehran");
     Calendar expected1 = Calendar.getInstance(TimeZone.getDefault());
     expected1.set(2014, 7, 5, 10, 2, 4);
     assertThat(JalCal.jalaliToGregorian(1393, 5, 14, 10, 2, 4).toString()).isEqualTo(expected1.getTime().toString());
@@ -56,6 +57,7 @@ public class JalCalTest {
 
     @Test
     public void testGregorianToJalali() throws DateException {
+        System.setProperty("user.timezone", "Asia/Tehran");
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.DAY_OF_MONTH, 5);
         cal.set(Calendar.MONTH, 6);

@@ -1,5 +1,2 @@
-before_script:
-              - echo 'Asia/Tehran' | sudo tee /etc/timezone
-              - sudo dpkg-reconfigure --frontend noninteractive tzdatai
-
-mvn package
+language: java
+script: mvn package

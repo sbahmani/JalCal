@@ -27,7 +27,8 @@ public class JalaliDateHelperTest {
 
     @Test
     public void testSomeMethod() {
-        Date now = new Date(1482148019498l);
+        System.setProperty("user.timezone", "Asia/Tehran");
+        Date now = new Date(1482148019498l);        
         String date1 = JalaliDateHelper.convertToJalali4DigitSlashDateFormat(now);
         Assertions.assertThat(date1).isEqualTo("1395/09/29");
         String date2 = JalaliDateHelper.convertToTimeDigitalFormat(now);
