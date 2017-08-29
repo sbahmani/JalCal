@@ -1,5 +1,5 @@
 {
         "language": "java",
-        "script": "mvn package -Dpgp.skip-true "
+        "script": "mvn package"
 }
 
