@@ -5,12 +5,26 @@
     <artifactId>jalcal</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
+    <name>Jalali Calendar</name>
+    <description>convert from/to Jalali and Defult Calendar</description>
+    <url>https://github.com/sbahmani/JalCal</url>
 
-    <parent>
-        <groupId>ir.iais</groupId>
-        <artifactId>prime-parent</artifactId>
-        <version>1.8</version>
-    </parent>
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+    
+    
+    <developers>
+        <developer>
+            <name>Sajad Bahmani</name>
+            <email>bahmani.s@gmail.com</email>
+            <organization>GitHub</organization>
+            <organizationUrl>https://github.com/sbahmani</organizationUrl>
+        </developer>
+    </developers>
      
                         
     <scm>
