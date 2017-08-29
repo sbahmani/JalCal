@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.sbahmani</groupId>
     <artifactId>jalcal</artifactId>
-    <version>1.1-SNAPSHOT</version>
+    <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Jalali Calendar</name>
     <description>convert from/to Jalali and Defult Calendar</description>
