@@ -50,8 +50,9 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <icu4j.version>59.1</icu4j.version>
-        <junit.version>4.12</junit.version>
         <fest.version>1.4</fest.version>
+        
+        <junit.jupiter.version>5.0.0</junit.jupiter.version>
            
         <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
     </properties>
@@ -63,11 +64,11 @@
             <version>${icu4j.version}</version>
         </dependency> 
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.jupiter.version}</version>
             <scope>test</scope>
-        </dependency>        
+        </dependency>
         <dependency>
             <groupId>org.easytesting</groupId>
             <artifactId>fest-assert</artifactId>
@@ -76,7 +77,7 @@
         </dependency>
     </dependencies>   
     
-<!--    <build>   
+    <!--    <build>   
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
