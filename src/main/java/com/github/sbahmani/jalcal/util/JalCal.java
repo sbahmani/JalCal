@@ -19,12 +19,16 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.StringTokenizer;
 import java.util.TimeZone;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
  * @author SjB
  */
 public class JalCal {
+
+    private static final Pattern JALALI_DATE_PATTERN = Pattern.compile("(\\d*)/(\\d*)/(\\d*)\\s*(\\d*):(\\d*):(\\d*)");
 
     private JalCal() {
     }
@@ -147,6 +151,36 @@ public class JalCal {
             Date retDate = jalaliToGregorian(intArr[2], intArr[1], intArr[0], 0, 0, 0);
             return retDate;
         }
+
+    }
+
+    public static Date JalaliToGregorianWithHourMinSec(String input) throws DateException {
+        Matcher matcher = JALALI_DATE_PATTERN.matcher(input);
+        if (matcher.matches()) {
+
+            try {
+                Date retDate = jalaliToGregorian(
+                        Integer.valueOf(matcher.group(1)),
+                        Integer.valueOf(matcher.group(2)),
+                        Integer.valueOf(matcher.group(3)),
+                        Integer.valueOf(matcher.group(4)),
+                        Integer.valueOf(matcher.group(5)),
+                        Integer.valueOf(matcher.group(6))
+                );
+                return retDate;
+            } catch (DateException ex) {
+                Date retDate = jalaliToGregorian(
+                        Integer.valueOf(matcher.group(3)),
+                        Integer.valueOf(matcher.group(2)),
+                        Integer.valueOf(matcher.group(1)),
+                        Integer.valueOf(matcher.group(4)),
+                        Integer.valueOf(matcher.group(5)),
+                        Integer.valueOf(matcher.group(6))
+                );
+                return retDate;
+            }
+        }
+        throw new DateException();
 
     }
 }
