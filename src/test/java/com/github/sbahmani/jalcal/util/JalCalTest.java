@@ -83,7 +83,5 @@ public class JalCalTest {
         assertThat(d2.getTime()).isEqualTo(time);
 
     }
-    
-    
 
 }
