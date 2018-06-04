@@ -7,7 +7,7 @@
     <packaging>jar</packaging>
     <name>Jalali Calendar</name>
     <description>convert from/to Jalali and Defult Calendar</description>
-    <url>https://github.com/SjBahmani/JalCal</url>
+    <url>https://github.com/sbahmani/JalCal</url>
 
     <licenses>
         <license>
@@ -22,15 +22,15 @@
             <name>Sajad Bahmani</name>
             <email>bahmani.s@gmail.com</email>
             <organization>GitHub</organization>
-            <organizationUrl>https://github.com/SjBahmani</organizationUrl>
+            <organizationUrl>https://github.com/sbahmani</organizationUrl>
         </developer>
     </developers>
      
                         
     <scm>
-        <connection>scm:git:https://github.com/SjBahmani/JalCal.git</connection>
-        <developerConnection>scm:git:https://github.com/SjBahmani/JalCal.git</developerConnection>
-        <url>scm:git:https://github.com/SjBahmani/JalCal.git</url>
+        <connection>scm:git:https://github.com/sbahmani/JalCal.git</connection>
+        <developerConnection>scm:git:https://github.com/sbahmani/JalCal.git</developerConnection>
+        <url>scm:git:https://github.com/sbahmani/JalCal.git</url>
         <tag>HEAD</tag>
     </scm>
     

@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/SjBahmani/JalCal.svg?branch=master)](https://travis-ci.org/SjBahmani/JalCal)
+[![Build Status](https://travis-ci.org/sbahmani/JalCal.svg?branch=master)](https://travis-ci.org/sbahmani/JalCal)
 
 # JalCal
 
