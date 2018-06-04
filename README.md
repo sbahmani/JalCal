@@ -8,7 +8,7 @@ Jalali(Persian) Calender Convertor in Java
 
 ```
 <dependency>
-    <groupId>com.github.SjBahmani</groupId>
+    <groupId>com.github.sbahmani</groupId>
     <artifactId>jalcal</artifactId>
     <version>1.4</version>
 </dependency>
