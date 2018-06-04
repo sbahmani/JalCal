@@ -138,7 +138,7 @@ public class JalCal {
 
     /**
      *
-     * @param input need to be converted
+     * @param input need to be converted yyyy/mm/dd or dd/mm/yyyy
      * @return normal java date
      * @throws DateException fail to convert
      */
@@ -154,6 +154,12 @@ public class JalCal {
 
     }
 
+    /**
+     *
+     * @param input yyyy/mm/dd hh:mm:ss or dd/mm/yyyy hh:mm:ss
+     * @return normal java date
+     * @throws DateException fail to convert
+     */
     public static Date JalaliToGregorianWithHourMinSec(String input) throws DateException {
         Matcher matcher = JALALI_DATE_PATTERN.matcher(input);
         if (matcher.matches()) {

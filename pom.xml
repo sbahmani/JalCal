@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.github.sbahmani</groupId>
+    <groupId>com.github.SjBahmani</groupId>
     <artifactId>jalcal</artifactId>
     <version>1.4-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Jalali Calendar</name>
     <description>convert from/to Jalali and Defult Calendar</description>
-    <url>https://github.com/sbahmani/JalCal</url>
+    <url>https://github.com/SjBahmani/JalCal</url>
 
     <licenses>
         <license>
@@ -22,15 +22,15 @@
             <name>Sajad Bahmani</name>
             <email>bahmani.s@gmail.com</email>
             <organization>GitHub</organization>
-            <organizationUrl>https://github.com/sbahmani</organizationUrl>
+            <organizationUrl>https://github.com/SjBahmani</organizationUrl>
         </developer>
     </developers>
      
                         
     <scm>
-        <connection>scm:git:https://github.com/sbahmani/JalCal.git</connection>
-        <developerConnection>scm:git:https://github.com/sbahmani/JalCal.git</developerConnection>
-        <url>scm:git:https://github.com/sbahmani/JalCal.git</url>
+        <connection>scm:git:https://github.com/SjBahmani/JalCal.git</connection>
+        <developerConnection>scm:git:https://github.com/SjBahmani/JalCal.git</developerConnection>
+        <url>scm:git:https://github.com/SjBahmani/JalCal.git</url>
         <tag>HEAD</tag>
     </scm>
     
@@ -49,12 +49,16 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <icu4j.version>59.1</icu4j.version>
+        <icu4j.version>61.1</icu4j.version>
         <fest.version>1.4</fest.version>
         
-        <junit.jupiter.version>5.0.0</junit.jupiter.version>
+        <junit.jupiter.version>5.2.0</junit.jupiter.version>
            
         <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
+        <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
+        <maven-javadoc-plugin.version>3.0.1</maven-javadoc-plugin.version>
+        <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
+        <nexus-staging-maven-plugin.version>1.6.8</nexus-staging-maven-plugin.version>
     </properties>
     
     <dependencies>
@@ -77,12 +81,12 @@
         </dependency>
     </dependencies>   
     
-<!--    <build>   
+    <build>   
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
-                <version>2.5.3</version>
+                <version>${maven-release-plugin.version}</version>
                 <configuration>
                     <autoVersionSubmodules>true</autoVersionSubmodules>
                     <useReleaseProfile>false</useReleaseProfile>
@@ -93,7 +97,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>2.2.1</version>
+                <version>${maven-source-plugin.version}</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -106,7 +110,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.9.1</version>
+                <version>${maven-javadoc-plugin.version}</version>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
@@ -119,7 +123,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.5</version>
+                <version>${maven-gpg-plugin.version}</version>
                 <executions>
                     <execution>
                         <id>sign-artifacts</id>
@@ -133,7 +137,7 @@
             <plugin>
                 <groupId>org.sonatype.plugins</groupId>
                 <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.7</version>
+                <version>${nexus-staging-maven-plugin.version}</version>
                 <extensions>true</extensions>
                 <configuration>
                     <serverId>ossrh</serverId>
@@ -142,5 +146,5 @@
                 </configuration>
             </plugin>
         </plugins>
-    </build>        -->
+    </build>        
 </project>
