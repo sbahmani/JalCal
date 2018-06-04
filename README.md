@@ -10,7 +10,7 @@ Jalali(Persian) Calender Convertor in Java
 <dependency>
     <groupId>com.github.SjBahmani</groupId>
     <artifactId>jalcal</artifactId>
-    <version>1.3</version>
+    <version>1.4</version>
 </dependency>
 ```
 
@@ -47,16 +47,16 @@ Jalali(Persian) Calender Convertor in Java
 - test Gregorian to Jalali
 
   ```
-   Calendar cal = Calendar.getInstance();
-   cal.set(Calendar.DAY_OF_MONTH, 5);
-   cal.set(Calendar.MONTH, 6);
-   cal.set(Calendar.YEAR, 2014);
-   cal.set(Calendar.HOUR_OF_DAY, 10);
-   cal.set(Calendar.MINUTE, 25);
-   cal.set(Calendar.SECOND, 1);
-   cal.set(Calendar.MILLISECOND, 0);
-   assertThat(JalCal.gregorianToJalali(cal.getTime(), true)).isEqualTo("14/04/1393   10:25:01");
-   assertThat(JalCal.gregorianToJalali(new Date(1426883400000l), true)).isEqualTo("01/01/1394   00:00:00");
+    Calendar cal = Calendar.getInstance();
+    cal.set(Calendar.DAY_OF_MONTH, 5);
+    cal.set(Calendar.MONTH, 6);
+    cal.set(Calendar.YEAR, 2014);
+    cal.set(Calendar.HOUR_OF_DAY, 10);
+    cal.set(Calendar.MINUTE, 25);
+    cal.set(Calendar.SECOND, 1);
+    cal.set(Calendar.MILLISECOND, 0);
+    assertThat(JalCal.gregorianToJalali(cal.getTime(), true)).isEqualTo("14/04/1393   10:25:01");
+    assertThat(JalCal.gregorianToJalali(new Date(1426883400000l), true)).isEqualTo("01/01/1394   00:00:00");
   ```
 
 - test Helper
