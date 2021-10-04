@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.sbahmani</groupId>
     <artifactId>jalcal</artifactId>
-    <version>1.5</version>
+    <version>1.6-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>Jalali Calendar</name>
     <description>convert from/to Jalali and Defult Calendar</description>
@@ -31,7 +31,7 @@
         <connection>scm:git:https://github.com/sbahmani/JalCal.git</connection>
         <developerConnection>scm:git:https://github.com/sbahmani/JalCal.git</developerConnection>
         <url>scm:git:https://github.com/sbahmani/JalCal.git</url>
-        <tag>jalcal-1.5</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <distributionManagement>
