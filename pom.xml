@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.sbahmani</groupId>
     <artifactId>jalcal</artifactId>
@@ -15,8 +16,8 @@
             <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
         </license>
     </licenses>
-    
-    
+
+
     <developers>
         <developer>
             <name>Sajad Bahmani</name>
@@ -25,15 +26,15 @@
             <organizationUrl>https://github.com/sbahmani</organizationUrl>
         </developer>
     </developers>
-     
-                        
+
+
     <scm>
         <connection>scm:git:https://github.com/sbahmani/JalCal.git</connection>
         <developerConnection>scm:git:https://github.com/sbahmani/JalCal.git</developerConnection>
         <url>scm:git:https://github.com/sbahmani/JalCal.git</url>
         <tag>HEAD</tag>
     </scm>
-    
+
     <distributionManagement>
         <snapshotRepository>
             <id>ossrh</id>
@@ -44,29 +45,29 @@
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
-    
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <icu4j.version>69.1</icu4j.version>
         <fest.version>1.4</fest.version>
-        
+
         <junit.jupiter.version>5.2.0</junit.jupiter.version>
-           
+
         <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
         <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
         <maven-javadoc-plugin.version>3.0.1</maven-javadoc-plugin.version>
         <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
         <nexus-staging-maven-plugin.version>1.6.8</nexus-staging-maven-plugin.version>
     </properties>
-    
+
     <dependencies>
         <dependency>
             <groupId>com.ibm.icu</groupId>
             <artifactId>icu4j</artifactId>
             <version>${icu4j.version}</version>
-        </dependency> 
+        </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -79,8 +80,8 @@
             <version>${fest.version}</version>
             <scope>test</scope>
         </dependency>
-    </dependencies>       
-    <!--    <build>   
+    </dependencies>
+    <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -92,7 +93,7 @@
                     <releaseProfiles>release</releaseProfiles>
                     <goals>deploy</goals>
                 </configuration>
-            </plugin>                     
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
@@ -145,5 +146,5 @@
                 </configuration>
             </plugin>
         </plugins>
-    </build>        -->
+    </build>
 </project>
