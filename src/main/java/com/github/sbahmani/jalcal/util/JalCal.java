@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright 2014 sjb.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -23,7 +23,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- *
  * @author SjB
  */
 public class JalCal {
@@ -34,12 +33,11 @@ public class JalCal {
     }
 
     /**
-     *
-     * @param year in jalali
-     * @param month in jalali (not zero based)
-     * @param day in jalali
-     * @param hour in local time
-     * @param min in local time
+     * @param year   in jalali
+     * @param month  in jalali (not zero based)
+     * @param day    in jalali
+     * @param hour   in local time
+     * @param min    in local time
      * @param second in local time
      * @return java normal date
      * @throws DateException fail to convert
@@ -68,9 +66,9 @@ public class JalCal {
     }
 
     /**
-     * @param date need to be converted
+     * @param date       need to be converted
      * @param dayAtFirst if true on return value day/month/year else
-     * year/month/day
+     *                   year/month/day
      * @return day/month/year or year/month/day
      */
     public static String gregorianToJalaliDate(Date date, boolean dayAtFirst) {
@@ -92,7 +90,6 @@ public class JalCal {
     }
 
     /**
-     *
      * @param date need to be converted
      * @return hour:min:sec
      */
@@ -105,14 +102,37 @@ public class JalCal {
     }
 
     /**
-     *
-     * @param date need to be converted
+     * @param date       need to be converted
      * @param dayAtFirst if true on return value day/month/year else
-     * year/month/day
+     *                   year/month/day
      * @return jalai date
      */
     public static String gregorianToJalali(Date date, boolean dayAtFirst) {
         return gregorianToJalaliDate(date, dayAtFirst) + "   " + gregorianToJalaliTime(date);
+    }
+
+    public static String getPersianDay(Date date) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        int i = cal.get(Calendar.DAY_OF_WEEK);
+        switch (i) {
+            case 1:
+                return "یکشنبه";
+            case 2:
+                return "دوشنبه";
+            case 3:
+                return "سه‌شنبه";
+            case 4:
+                return "چهارشنبه";
+            case 5:
+                return "پنجشنبه";
+            case 6:
+                return "جمعه";
+            case 7:
+                return "شنبه";
+            default:
+                return "هیچ شنبه";
+        }
     }
 
     private static int[] slashDateTokenizer(String input) throws DateException {
@@ -133,7 +153,6 @@ public class JalCal {
     }
 
     /**
-     *
      * @param input need to be converted yyyy/mm/dd or dd/mm/yyyy
      * @return normal java date
      * @throws DateException fail to convert
@@ -149,7 +168,6 @@ public class JalCal {
     }
 
     /**
-     *
      * @param input yyyy/mm/dd hh:mm:ss or dd/mm/yyyy hh:mm:ss
      * @return normal java date
      * @throws DateException fail to convert

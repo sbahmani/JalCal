@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright 2014 sjb.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,11 +18,12 @@ package com.github.sbahmani.jalcal.util;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
+
 import static org.fest.assertions.Assertions.*;
+
 import org.junit.jupiter.api.Test;
 
 /**
- *
  * @author sjb
  */
 public class JalCalTest {
@@ -33,6 +34,7 @@ public class JalCalTest {
         Calendar expected1 = Calendar.getInstance(TimeZone.getDefault());
         expected1.set(2014, 7, 5, 10, 2, 4);
         assertThat(JalCal.jalaliToGregorian(1393, 5, 14, 10, 2, 4).toString()).isEqualTo(expected1.getTime().toString());
+        assertThat(JalCal.getPersianDay(expected1.getTime())).isEqualTo("سه‌شنبه");
 
         Calendar expected2 = Calendar.getInstance(TimeZone.getDefault());
         expected2.set(2014, 7, 5, 12, 1, 1);
@@ -56,7 +58,7 @@ public class JalCalTest {
     }
 
     @Test
-    public void testGregorianToJalali() throws DateException {
+    public void testGregorianToJalali() {
         System.setProperty("user.timezone", "Asia/Tehran");
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.DAY_OF_MONTH, 5);
@@ -67,14 +69,14 @@ public class JalCalTest {
         cal.set(Calendar.SECOND, 1);
         cal.set(Calendar.MILLISECOND, 0);
         assertThat(JalCal.gregorianToJalali(cal.getTime(), true)).isEqualTo("14/04/1393   10:25:01");
-        assertThat(JalCal.gregorianToJalali(new Date(1426883400000l), true)).isEqualTo("01/01/1394   00:00:00");
+        assertThat(JalCal.gregorianToJalali(new Date(1426883400000L), true)).isEqualTo("01/01/1394   00:00:00");
 
     }
 
     @Test
     public void testJalaliToGregorianWithHourMinSec() throws DateException {
         System.setProperty("user.timezone", "Asia/Tehran");
-        Long time = 1520956290000l;
+        Long time = 1520956290000L;
         String j1 = JalCal.gregorianToJalali(new Date(time), false);
         Date d1 = JalCal.JalaliToGregorianWithHourMinSec(j1);
         assertThat(d1.getTime()).isEqualTo(time);
