@@ -150,7 +150,7 @@ public class PersianCalendar extends Calendar implements PersianCalendarConstant
         set(MINUTE, minute);
         set(SECOND, second);
     }
-    private static final int LIMITS[][]
+    private static final int[][] LIMITS
             = {
                 // Minimum, GreatestMinimum, LeastMaximum, Maximum
                 {0, 0, 1, 1}, // ERA
@@ -247,34 +247,30 @@ public class PersianCalendar extends Calendar implements PersianCalendarConstant
      */
     @Override
     public void add(int field, int amount) {
-        switch (field) {
-            case MONTH: {
-                int month = get(MONTH);
-                int extendedYear = get(EXTENDED_YEAR);
-                if (amount > 0) {
-                    extendedYear += amount / 12;
-                    month += amount % 12;
-                    if (month > 11) {
-                        month -= 12;
-                        extendedYear++;
-                    }
-                } else {
-                    amount = -amount;
-                    extendedYear -= amount / 12;
-                    month -= amount % 12;
-                    if (month < 0) {
-                        month += 12;
-                        extendedYear--;
-                    }
+        if (field == MONTH) {
+            int month = get(MONTH);
+            int extendedYear = get(EXTENDED_YEAR);
+            if (amount > 0) {
+                extendedYear += amount / 12;
+                month += amount % 12;
+                if (month > 11) {
+                    month -= 12;
+                    extendedYear++;
                 }
-                set(EXTENDED_YEAR, extendedYear);
-                set(MONTH, month);
-                pinField(DAY_OF_MONTH);
-                break;
+            } else {
+                amount = -amount;
+                extendedYear -= amount / 12;
+                month -= amount % 12;
+                if (month < 0) {
+                    month += 12;
+                    extendedYear--;
+                }
             }
-            default:
-                super.add(field, amount);
-                break;
+            set(EXTENDED_YEAR, extendedYear);
+            set(MONTH, month);
+            pinField(DAY_OF_MONTH);
+        } else {
+            super.add(field, amount);
         }
     }
 

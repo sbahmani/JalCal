@@ -49,7 +49,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <icu4j.version>61.1</icu4j.version>
+        <icu4j.version>69.1</icu4j.version>
         <fest.version>1.4</fest.version>
         
         <junit.jupiter.version>5.2.0</junit.jupiter.version>

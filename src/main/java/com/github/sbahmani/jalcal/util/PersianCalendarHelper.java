@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright 2014 sjb.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -49,7 +49,7 @@ public class PersianCalendarHelper {
     public static long pj(long y, int m, int d) {
         long a = y - 474L;
         long b = mod(a, 2820D) + 474L;
-        return (EPOCH - 1L) + 1029983L * div(a, 2820D) + 365L * (b - 1L) + div(682L * b - 110L, 2816D) + (long) (m > 6 ? 30 * m + 6 : 31 * m) + (long) d;
+        return (EPOCH - 1L) + 1029983L * div(a, 2820D) + 365L * (b - 1L) + div(682L * b - 110L, 2816D) + (m > 6 ? 30L * m + 6 : 31L * m) + (long) d;
     }
 
     /**
@@ -68,6 +68,6 @@ public class PersianCalendarHelper {
         long f = (1L + j) - pj(year, 0, 1);
         int month = (int) (f > 186L ? Math.ceil((double) (f - 6L) / 30D) - 1 : Math.ceil((double) f / 31D) - 1);
         int day = (int) (j - (pj(year, month, 1) - 1L));
-        return (year << 16) | (month << 8) | day;
+        return (year << 16) | ((long) month << 8) | day;
     }
 }

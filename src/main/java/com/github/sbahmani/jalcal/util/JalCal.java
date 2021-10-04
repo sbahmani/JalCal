@@ -80,17 +80,13 @@ public class JalCal {
         spc.setTimeZone(TimeZone.getTimeZone("UTC"));
         spc.set(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
         if (dayAtFirst) {
-            return String.valueOf(
-                    (spc.getDateFields().getDay() < 10 ? "0" : "") + String.valueOf(spc.getDateFields().getDay()) + "/"
-                    + (spc.getDateFields().getMonth() + 1 < 10 ? "0" : "") + String.valueOf(spc.getDateFields().getMonth() + 1) + "/"
-                    + spc.getDateFields().getYear()
-            );
+            return (spc.getDateFields().getDay() < 10 ? "0" : "") + spc.getDateFields().getDay() + "/"
+                    + (spc.getDateFields().getMonth() + 1 < 10 ? "0" : "") + (spc.getDateFields().getMonth() + 1) + "/"
+                    + spc.getDateFields().getYear();
         } else {
-            return String.valueOf(
-                    spc.getDateFields().getYear() + "/"
-                    + (spc.getDateFields().getMonth() + 1 < 10 ? "0" : "") + String.valueOf(spc.getDateFields().getMonth() + 1) + "/"
-                    + (spc.getDateFields().getDay() < 10 ? "0" : "") + String.valueOf(spc.getDateFields().getDay())
-            );
+            return spc.getDateFields().getYear() + "/"
+                    + (spc.getDateFields().getMonth() + 1 < 10 ? "0" : "") + (spc.getDateFields().getMonth() + 1) + "/"
+                    + (spc.getDateFields().getDay() < 10 ? "0" : "") + spc.getDateFields().getDay();
         }
 
     }
@@ -103,9 +99,9 @@ public class JalCal {
     public static String gregorianToJalaliTime(Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
-        return (calendar.get(Calendar.HOUR_OF_DAY) < 10 ? "0" : "") + String.valueOf(calendar.get(Calendar.HOUR_OF_DAY)) + ":"
-                + (calendar.get(Calendar.MINUTE) < 10 ? "0" : "") + String.valueOf(calendar.get(Calendar.MINUTE)) + ":"
-                + (calendar.get(Calendar.SECOND) < 10 ? "0" : "") + String.valueOf(calendar.get(Calendar.SECOND));
+        return (calendar.get(Calendar.HOUR_OF_DAY) < 10 ? "0" : "") + calendar.get(Calendar.HOUR_OF_DAY) + ":"
+                + (calendar.get(Calendar.MINUTE) < 10 ? "0" : "") + calendar.get(Calendar.MINUTE) + ":"
+                + (calendar.get(Calendar.SECOND) < 10 ? "0" : "") + calendar.get(Calendar.SECOND);
     }
 
     /**
@@ -127,9 +123,9 @@ public class JalCal {
         }
         int[] retInt = new int[3];
         try {
-            retInt[0] = Integer.valueOf(tokenizer.nextToken());
-            retInt[1] = Integer.valueOf(tokenizer.nextToken());
-            retInt[2] = Integer.valueOf(tokenizer.nextToken());
+            retInt[0] = Integer.parseInt(tokenizer.nextToken());
+            retInt[1] = Integer.parseInt(tokenizer.nextToken());
+            retInt[2] = Integer.parseInt(tokenizer.nextToken());
         } catch (NumberFormatException ex) {
             throw new DateException();
         }
@@ -145,11 +141,9 @@ public class JalCal {
     public static Date jalaliToGregorian(String input) throws DateException {
         int[] intArr = slashDateTokenizer(input);
         try {
-            Date retDate = jalaliToGregorian(intArr[0], intArr[1], intArr[2], 0, 0, 0);
-            return retDate;
+            return jalaliToGregorian(intArr[0], intArr[1], intArr[2], 0, 0, 0);
         } catch (DateException ex) {
-            Date retDate = jalaliToGregorian(intArr[2], intArr[1], intArr[0], 0, 0, 0);
-            return retDate;
+            return jalaliToGregorian(intArr[2], intArr[1], intArr[0], 0, 0, 0);
         }
 
     }
@@ -165,25 +159,23 @@ public class JalCal {
         if (matcher.matches()) {
 
             try {
-                Date retDate = jalaliToGregorian(
-                        Integer.valueOf(matcher.group(1)),
-                        Integer.valueOf(matcher.group(2)),
-                        Integer.valueOf(matcher.group(3)),
-                        Integer.valueOf(matcher.group(4)),
-                        Integer.valueOf(matcher.group(5)),
-                        Integer.valueOf(matcher.group(6))
+                return jalaliToGregorian(
+                        Integer.parseInt(matcher.group(1)),
+                        Integer.parseInt(matcher.group(2)),
+                        Integer.parseInt(matcher.group(3)),
+                        Integer.parseInt(matcher.group(4)),
+                        Integer.parseInt(matcher.group(5)),
+                        Integer.parseInt(matcher.group(6))
                 );
-                return retDate;
             } catch (DateException ex) {
-                Date retDate = jalaliToGregorian(
-                        Integer.valueOf(matcher.group(3)),
-                        Integer.valueOf(matcher.group(2)),
-                        Integer.valueOf(matcher.group(1)),
-                        Integer.valueOf(matcher.group(4)),
-                        Integer.valueOf(matcher.group(5)),
-                        Integer.valueOf(matcher.group(6))
+                return jalaliToGregorian(
+                        Integer.parseInt(matcher.group(3)),
+                        Integer.parseInt(matcher.group(2)),
+                        Integer.parseInt(matcher.group(1)),
+                        Integer.parseInt(matcher.group(4)),
+                        Integer.parseInt(matcher.group(5)),
+                        Integer.parseInt(matcher.group(6))
                 );
-                return retDate;
             }
         }
         throw new DateException();

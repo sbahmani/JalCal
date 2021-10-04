@@ -94,7 +94,7 @@ public class SimplePersianCalendar extends GregorianCalendar implements PersianC
         long y = y(r);
         int m = m(r);
         int d = d(r);
-        return new DateFields((int) (y > 0 ? y : y - 1), (int) m, (int) d);
+        return new DateFields((int) (y > 0 ? y : y - 1), m, (int) d);
     }
     /**
      * Persian month names.
