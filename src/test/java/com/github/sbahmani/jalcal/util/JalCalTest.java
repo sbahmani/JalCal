@@ -32,29 +32,34 @@ public class JalCalTest {
     public void testJalaliToGregorian() throws DateException {
         System.setProperty("user.timezone", "Asia/Tehran");
         Calendar expected1 = Calendar.getInstance(TimeZone.getDefault());
-        expected1.set(2014, 7, 5, 10, 2, 4);
+        expected1.set(2014, Calendar.AUGUST, 5, 10, 2, 4);
         assertThat(JalCal.jalaliToGregorian(1393, 5, 14, 10, 2, 4).toString()).isEqualTo(expected1.getTime().toString());
         assertThat(JalCal.getPersianDay(expected1.getTime())).isEqualTo("سه‌شنبه");
 
         Calendar expected2 = Calendar.getInstance(TimeZone.getDefault());
-        expected2.set(2014, 7, 5, 12, 1, 1);
+        expected2.set(2014, Calendar.AUGUST, 5, 12, 1, 1);
         assertThat(JalCal.jalaliToGregorian(1393, 5, 14, 12, 1, 1).toString()).isEqualTo(expected2.getTime().toString());
 
         Calendar expected3 = Calendar.getInstance(TimeZone.getDefault());
-        expected3.set(2014, 7, 5, 23, 1, 1);
+        expected3.set(2014, Calendar.AUGUST, 5, 23, 1, 1);
         assertThat(JalCal.jalaliToGregorian(1393, 5, 14, 23, 1, 1).toString()).isEqualTo(expected3.getTime().toString());
 
         Calendar expected4 = Calendar.getInstance(TimeZone.getDefault());
-        expected4.set(2014, 7, 5, 1, 23, 1);
+        expected4.set(2014, Calendar.AUGUST, 5, 1, 23, 1);
         assertThat(JalCal.jalaliToGregorian(1393, 5, 14, 1, 23, 1).toString()).isEqualTo(expected4.getTime().toString());
 
         Calendar expected5 = Calendar.getInstance(TimeZone.getDefault());
-        expected5.set(2014, 7, 5, 0, 0, 0);
+        expected5.set(2014, Calendar.AUGUST, 5, 0, 0, 0);
         assertThat(JalCal.jalaliToGregorian("1393/5/14").toString()).isEqualTo(expected5.getTime().toString());
 
         Calendar expected6 = Calendar.getInstance(TimeZone.getDefault());
-        expected6.set(2014, 7, 5, 0, 0, 0);
+        expected6.set(2014, Calendar.AUGUST, 5, 0, 0, 0);
         assertThat(JalCal.jalaliToGregorian("14/5/1393").toString()).isEqualTo(expected5.getTime().toString());
+
+        Calendar expected7 = Calendar.getInstance(TimeZone.getDefault());
+        expected7.set(2025, Calendar.MARCH, 20, 12, 1, 1);
+        assertThat(JalCal.jalaliToGregorian(1403, 12, 30, 12, 1, 1).toString()).isEqualTo(expected7.getTime().toString());
+
     }
 
     @Test

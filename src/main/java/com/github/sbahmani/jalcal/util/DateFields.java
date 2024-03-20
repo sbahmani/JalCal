@@ -1,4 +1,4 @@
-/* 
+/*
  * Copyright 2014 sjb.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -104,9 +104,9 @@ public final class DateFields {
     /**
      * Constructs a <code>DateFields</code> object with the given date fields.
      *
-     * @param year the Persian year.
+     * @param year  the Persian year.
      * @param month the Persian month (zero-based).
-     * @param day the Persian day of month.
+     * @param day   the Persian day of month.
      */
     public DateFields(int year, int month, int day) {
         super();
@@ -122,6 +122,6 @@ public final class DateFields {
      */
     @Override
     public String toString() {
-        return "" + year + "/" + (month + 1) + "/" + day;
+        return year + "/" + (month + 1) + "/" + day;
     }
 }

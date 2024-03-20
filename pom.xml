@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.sbahmani</groupId>
     <artifactId>jalcal</artifactId>
@@ -49,16 +50,17 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <icu4j.version>69.1</icu4j.version>
+        <icu4j.version>74.2</icu4j.version>
         <fest.version>1.4</fest.version>
 
-        <junit.jupiter.version>5.2.0</junit.jupiter.version>
+        <junit.jupiter.version>5.10.2</junit.jupiter.version>
 
-        <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
-        <maven-source-plugin.version>3.0.1</maven-source-plugin.version>
-        <maven-javadoc-plugin.version>3.0.1</maven-javadoc-plugin.version>
-        <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
-        <nexus-staging-maven-plugin.version>1.6.8</nexus-staging-maven-plugin.version>
+        <maven-release-plugin.version>3.0.1</maven-release-plugin.version>
+        <maven-source-plugin.version>3.3.0</maven-source-plugin.version>
+        <maven-enforcer-plugin.version>3.4.1</maven-enforcer-plugin.version>
+        <maven-javadoc-plugin.version>3.6.3</maven-javadoc-plugin.version>
+        <maven-gpg-plugin.version>3.2.1</maven-gpg-plugin.version>
+        <nexus-staging-maven-plugin.version>1.6.13</nexus-staging-maven-plugin.version>
     </properties>
 
     <dependencies>
@@ -143,6 +145,26 @@
                     <nexusUrl>https://oss.sonatype.org/</nexusUrl>
                     <autoReleaseAfterClose>true</autoReleaseAfterClose>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>${maven-enforcer-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>enforce-maven</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <requireMavenVersion>
+                                    <version>3.2.5</version>
+                                </requireMavenVersion>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
