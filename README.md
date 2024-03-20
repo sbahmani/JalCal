@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/sbahmani/JalCal.svg?branch=master)](https://travis-ci.org/sbahmani/JalCal)
-
 # JalCal
 
 Jalali(Persian) Calender Convertor in Java
@@ -8,9 +6,9 @@ Jalali(Persian) Calender Convertor in Java
 
 ```
 <dependency>
-    <groupId>com.github.sbahmani</groupId>
+    <groupId>io.github.sbahmani</groupId>
     <artifactId>jalcal</artifactId>
-    <version>1.4</version>
+    <version>1.6</version>
 </dependency>
 ```
 
@@ -42,6 +40,11 @@ Jalali(Persian) Calender Convertor in Java
     Calendar expected6 = Calendar.getInstance(TimeZone.getDefault());
     expected6.set(2014, 7, 5, 0, 0, 0);
     assertThat(JalCal.jalaliToGregorian("14/5/1393").toString()).isEqualTo(expected5.getTime().toString());
+
+    Calendar expected7 = Calendar.getInstance(TimeZone.getDefault());
+    expected7.set(2025, Calendar.MARCH, 20, 12, 1, 1);
+    assertThat(JalCal.jalaliToGregorian(1403, 12, 30, 12, 1, 1).toString()).isEqualTo(expected7.getTime().toString());
+  
   ```
 
 - test Gregorian to Jalali
