@@ -59,12 +59,45 @@ public class JalCalTest {
         Calendar expected7 = Calendar.getInstance(TimeZone.getDefault());
         expected7.set(2025, Calendar.MARCH, 20, 12, 1, 1);
         assertThat(JalCal.jalaliToGregorian(1403, 12, 30, 12, 1, 1).toString()).isEqualTo(expected7.getTime().toString());
+    }
+
+    @Test
+    public void testLeapYearPersianCalendar() throws DateException {
+        assertThat(JalCalUtil.persianFastLeapYear(1409)).isFalse();
+        assertThat(JalCalUtil.persianFastLeapYear(1408)).isTrue();
+        assertThat(JalCalUtil.persianFastLeapYear(1407)).isFalse();
+        assertThat(JalCalUtil.persianFastLeapYear(1406)).isFalse();
+        assertThat(JalCalUtil.persianFastLeapYear(1405)).isFalse();
+        assertThat(JalCalUtil.persianFastLeapYear(1404)).isFalse();
+        assertThat(JalCalUtil.persianFastLeapYear(1403)).isTrue();
+        assertThat(JalCalUtil.persianFastLeapYear(1402)).isFalse();
+        assertThat(JalCalUtil.persianFastLeapYear(1401)).isFalse();
+        assertThat(JalCalUtil.persianFastLeapYear(1400)).isFalse();
+        assertThat(JalCalUtil.persianFastLeapYear(1399)).isTrue();
+        assertThat(JalCalUtil.persianFastLeapYear(1398)).isFalse();
+        assertThat(JalCalUtil.persianFastLeapYear(1397)).isFalse();
+        assertThat(JalCalUtil.persianFastLeapYear(1396)).isFalse();
+        assertThat(JalCalUtil.persianFastLeapYear(1395)).isTrue();
+        assertThat(JalCalUtil.persianFastLeapYear(1391)).isTrue();
+        assertThat(JalCalUtil.persianFastLeapYear(1388)).isFalse();
+        assertThat(JalCalUtil.persianFastLeapYear(1387)).isTrue();
 
     }
 
     @Test
     public void testGregorianToJalali() {
         System.setProperty("user.timezone", "Asia/Tehran");
+        Calendar cal1 = Calendar.getInstance();
+        cal1.set(Calendar.DAY_OF_MONTH, 13);
+        cal1.set(Calendar.MONTH, Calendar.APRIL);
+        cal1.set(Calendar.YEAR, 2025);
+        cal1.set(Calendar.HOUR_OF_DAY, 10);
+        cal1.set(Calendar.MINUTE, 25);
+        cal1.set(Calendar.SECOND, 1);
+        cal1.set(Calendar.MILLISECOND, 0);
+        assertThat(JalCal.gregorianToJalali(cal1.getTime(), true)).isEqualTo("24/01/1404   10:25:01");
+
+
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.DAY_OF_MONTH, 5);
         cal.set(Calendar.MONTH, 6);

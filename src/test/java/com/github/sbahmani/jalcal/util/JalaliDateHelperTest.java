@@ -15,10 +15,10 @@
  */
 package com.github.sbahmani.jalcal.util;
 
-import java.util.Date;
 import org.fest.assertions.Assertions;
-
 import org.junit.jupiter.api.Test;
+
+import java.util.Date;
 
 /**
  *
@@ -29,11 +29,10 @@ public class JalaliDateHelperTest {
     @Test
     public void testSomeMethod() {
         System.setProperty("user.timezone", "Asia/Tehran");
-        Date now = new Date(1482148019498l);
+        Date now = new Date(1482148019498L);
         String date1 = JalaliDateHelper.convertToJalali4DigitSlashDateFormat(now);
         Assertions.assertThat(date1).isEqualTo("1395/09/29");
         String date2 = JalaliDateHelper.convertToTimeDigitalFormat(now);
-
         Assertions.assertThat(date2).isEqualTo("15:16:59");
 
     }
