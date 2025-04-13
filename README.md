@@ -10,7 +10,7 @@ Use [this](https://github.com/roozbehp/persiancalendar) repo for conversion
 <dependency>
     <groupId>io.github.sbahmani</groupId>
     <artifactId>jalcal</artifactId>
-    <version>2.0</version>
+    <version>2.1</version>
 </dependency>
 ```
 
