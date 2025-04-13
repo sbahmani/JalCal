@@ -1,6 +1,8 @@
 # JalCal
 
-Jalali(Persian) Calender Convertor in Java
+Jalali(Persian) Calendar Convertor in Java
+
+Use [this](https://github.com/roozbehp/persiancalendar) repo for conversion
 
 ## How to Use
 
@@ -8,7 +10,7 @@ Jalali(Persian) Calender Convertor in Java
 <dependency>
     <groupId>io.github.sbahmani</groupId>
     <artifactId>jalcal</artifactId>
-    <version>1.6</version>
+    <version>2.0</version>
 </dependency>
 ```
 
